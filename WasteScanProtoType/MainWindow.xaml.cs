@@ -23,6 +23,6 @@ namespace WasteScanProtoType
 		public MainWindow()
 		{
 			InitializeComponent();
-		}
+		}		
 	}
 }

@@ -3,10 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WasteScanProtoType"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        mc:Ignorable="d"        
+        Title="WasteScanPrototype" Height="640" Width="360"
+        AllowsTransparency="True" WindowStyle="None">
+    
+    <Window.Background>
+        <SolidColorBrush x:Name="BackgroundBrush" Color="WhiteSmoke" Opacity="0.1" />
+    </Window.Background>
+
+    <Border BorderBrush="DarkTurquoise" BorderThickness="3">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="210"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="320"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <StackPanel>
+                    <Label Content="INFORMATION:" Foreground="LightBlue"/>
+                    <Label Content="Did you know that 40% of all food are wasted in the US?" Foreground="LightBlue"/>
+                </StackPanel>
+            </Grid>        
+        </Grid>
+    </Border>
 </Window>
