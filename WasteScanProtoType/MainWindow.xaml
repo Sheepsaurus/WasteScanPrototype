@@ -3,32 +3,58 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"        
+        mc:Ignorable="d"
         Title="WasteScanPrototype" Height="640" Width="360"
-        AllowsTransparency="True" WindowStyle="None">
+        AllowsTransparency="True" WindowStyle="None"
+        FontSize="18">
     
     <Window.Background>
-        <SolidColorBrush x:Name="BackgroundBrush" Color="WhiteSmoke" Opacity="0.1" />
+        <SolidColorBrush x:Name="BackgroundBrush" Color="WhiteSmoke" Opacity="0.3" />
     </Window.Background>
-
-    <Border BorderBrush="DarkTurquoise" BorderThickness="3">
+    <Border BorderBrush="White" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="210"/>
-                <RowDefinition Height="110"/>
-                <RowDefinition Height="320"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.9*"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                
+            <Grid Grid.Row="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Row="1" Grid.Column="1" Height="{Binding BarcodeHeight}" Width="{Binding BarcodeWidth}" BorderBrush="Black" BorderThickness="1"/>
+                <Rectangle Grid.Row="0" Fill="Black" Opacity="0.5"/>
+                <Rectangle Grid.Row="1" Fill="Black" Opacity="0.5"/>
+                <Rectangle Grid.Row="2" Fill="Black" Opacity="0.5"/>
+                <Rectangle Grid.Row="0" Grid.Column="1" Fill="Black" Opacity="0.5"/>
+                <Rectangle Grid.Row="2" Grid.Column="1" Fill="Black" Opacity="0.5"/>
+                <Rectangle Grid.Row="0" Grid.Column="2" Fill="Black" Opacity="0.5"/>
+                <Rectangle Grid.Row="1" Grid.Column="2" Fill="Black" Opacity="0.5"/>
+                <Rectangle Grid.Row="2" Grid.Column="2" Fill="Black" Opacity="0.5"/>
+                <Line Grid.Row="1" Grid.Column="1" X1="3" Y1="{Binding LineOffset}" X2="{Binding LineLength}" Y2="{Binding LineOffset}" Stroke="DarkMagenta" StrokeThickness="2" />
             </Grid>
-            <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                <StackPanel>
-                    <Label Content="INFORMATION:" Foreground="LightBlue"/>
-                    <Label Content="Did you know that 40% of all food are wasted in the US?" Foreground="LightBlue"/>
+            <Grid Grid.Row="1" >
+                <Rectangle Fill="DarkSlateGray"/>
+                <TextBlock FontSize="60" Text="{Binding SaveAmount}" 
+                           Foreground="LightBlue" TextAlignment="Center"
+                           />
+            </Grid>
+            <Grid Grid.Row="2" >
+                <Rectangle Fill="SeaGreen"/>
+                <StackPanel Margin="10, 5, 0, 0">
+                    <TextBlock Text="INFORMATION:" 
+                               Foreground="White"/>                    
+                    <TextBlock Text="{Binding InformationFact}" 
+                               Foreground="White"
+                               TextWrapping="WrapWithOverflow"/>
                 </StackPanel>
             </Grid>        
         </Grid>
